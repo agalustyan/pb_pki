@@ -10,7 +10,7 @@ log = { version = "0.4.27", features = ["std", "serde"] }
 # Networking-related crates
 reqwest = { version = "0.12.20" , features = ["rustls-tls", "native-tls"] }
 
-certval = { git = "https://github.com/carl-wallace/rust-pki.git", features = ["std"]}
+certval = { git = "https://github.com/carl-wallace/rust-pki.git", features = ["std"], branch = "updates"}
 
 [features]
 default = ["dev"]
@@ -19,3 +19,47 @@ om_nipr = []
 om_sipr = []
 nipr = []
 sipr = []
+
+[patch.crates-io]
+x509-cert  = { git = "https://github.com/RustCrypto/formats.git" }
+crmf       = { git = "https://github.com/RustCrypto/formats.git" }
+pkcs5      = { git = "https://github.com/RustCrypto/formats.git" }
+pkcs12     = { git = "https://github.com/RustCrypto/formats.git" }
+spki       = { git = "https://github.com/RustCrypto/formats.git" }
+
+cms        = { git = "https://github.com/RustCrypto/formats.git" }
+der        = { git = "https://github.com/RustCrypto/formats.git" }
+der_derive = { git = "https://github.com/RustCrypto/formats.git" }
+x509-ocsp  = { git = "https://github.com/RustCrypto/formats.git" }
+
+crypto-common  = { git = "https://github.com/baloo/traits.git", branch = "baloo/digest-newtype-master" }
+digest         = { git = "https://github.com/baloo/traits.git", branch = "baloo/digest-newtype-master" }
+elliptic-curve = { git = "https://github.com/baloo/traits.git", branch = "baloo/digest-newtype-master" }
+signature      = { git = "https://github.com/baloo/traits.git", branch = "baloo/digest-newtype-master" }
+
+primefield = { git = "https://github.com/RustCrypto/elliptic-curves.git" }
+p256       = { git = "https://github.com/RustCrypto/elliptic-curves.git" }
+p384       = { git = "https://github.com/RustCrypto/elliptic-curves.git" }
+p521       = { git = "https://github.com/RustCrypto/elliptic-curves.git" }
+
+ecdsa   = { git = "https://github.com/baloo/signatures.git" }
+ed25519 = { git = "https://github.com/baloo/signatures.git" }
+rfc6979 = { git = "https://github.com/baloo/signatures.git" }
+
+sha1         = { git = "https://github.com/RustCrypto/hashes.git" }
+sha2         = { git = "https://github.com/RustCrypto/hashes.git" }
+
+rsa = { git = "https://github.com/baloo/RSA.git" }
+
+hmac = { git = "https://github.com/baloo/MACs.git", branch = "baloo/digest-pin" }
+
+pkcs1 = { git = "https://github.com/RustCrypto/formats.git" }
+
+crypto-bigint = { git = "https://github.com/RustCrypto/crypto-bigint.git" }
+crypto-primes = { git = "https://github.com/entropyxyz/crypto-primes.git" }
+
+curve25519-dalek = { git = "https://github.com/baloo/curve25519-dalek.git", branch = "baloo/rand-0.9" }
+ed25519-dalek    = { git = "https://github.com/baloo/curve25519-dalek.git", branch = "baloo/rand-0.9" }
+
+[patch.'https://github.com/carl-wallace/pqckeys']
+pqckeys = { git = "https://github.com/baloo/pqckeys.git", branch = "baloo/pre-releases" }
