@@ -10,7 +10,7 @@ log = { version = "0.4.27", features = ["std", "serde"] }
 # Networking-related crates
 reqwest = { version = "0.12.20" , features = ["rustls-tls", "native-tls"] }
 
-certval = { git = "https://github.com/carl-wallace/rust-pki.git", features = ["std"], branch = "cert_limbo"}
+certval = { git = "https://github.com/carl-wallace/rust-pki.git", features = ["std"], branch = "depend_update"}
 
 [features]
 default = ["dev"]
@@ -40,7 +40,7 @@ sha1         = { git = "https://github.com/RustCrypto/hashes.git" }
 sha2         = { git = "https://github.com/RustCrypto/hashes.git" }
 
 elliptic-curve = { git = "https://github.com/RustCrypto/traits.git" }
-ecdsa         = { git = "https://github.com/carl-wallace/signatures.git", branch = "aes_mgmt" }
+ecdsa         = { git = "https://github.com/RustCrypto/signatures.git"}
 
 # Miscellaneous repos
 curve25519-dalek = { git = "https://github.com/baloo/curve25519-dalek.git", branch = "baloo/rand-0.9" }
