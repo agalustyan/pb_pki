@@ -122,7 +122,7 @@ dependencies = [
 [[package]]
 name = "certval"
 version = "0.1.4"
-source = "git+https://github.com/carl-wallace/rust-pki.git?branch=c7#101052e5257ba30c1c4032a62e4c1842cae3cfd1"
+source = "git+https://github.com/carl-wallace/rust-pki.git?branch=cert_limbo#88fdc02ec50b33af00b4ffa0e218eb23ead5cbe6"
 dependencies = [
  "base64ct",
  "bitvec",
@@ -133,7 +133,6 @@ dependencies = [
  "const-oid",
  "der",
  "ecdsa",
- "ed25519-dalek",
  "flagset",
  "hex-literal",
  "lazy_static",
@@ -151,6 +150,7 @@ dependencies = [
  "serde_json",
  "sha1",
  "sha2",
+ "signature",
  "spki",
  "subtle-encoding",
  "url",
@@ -275,31 +275,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "curve25519-dalek"
-version = "4.1.3"
-source = "git+https://github.com/baloo/curve25519-dalek.git?branch=baloo%2Frand-0.9#423dbb2cd39b0a25207d646f771e5494ee14aeef"
-dependencies = [
- "cfg-if",
- "cpufeatures",
- "curve25519-dalek-derive",
- "digest",
- "fiat-crypto",
- "rustc_version",
- "subtle",
- "zeroize",
-]
-
-[[package]]
-name = "curve25519-dalek-derive"
-version = "0.1.1"
-source = "git+https://github.com/baloo/curve25519-dalek.git?branch=baloo%2Frand-0.9#423dbb2cd39b0a25207d646f771e5494ee14aeef"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
 name = "der"
 version = "0.8.0-rc.7"
 source = "git+https://github.com/RustCrypto/formats.git#957490549db8990637236e53f540a38d15263167"
@@ -354,30 +329,6 @@ dependencies = [
  "elliptic-curve",
  "rfc6979",
  "signature",
- "zeroize",
-]
-
-[[package]]
-name = "ed25519"
-version = "3.0.0-pre.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e6e01f644da45b2f83a7c40f6895ccc467ce60d6163c729d9fe4351eaa42c512"
-dependencies = [
- "pkcs8",
- "signature",
-]
-
-[[package]]
-name = "ed25519-dalek"
-version = "2.2.0-pre"
-source = "git+https://github.com/baloo/curve25519-dalek.git?branch=baloo%2Frand-0.9#423dbb2cd39b0a25207d646f771e5494ee14aeef"
-dependencies = [
- "curve25519-dalek",
- "ed25519",
- "serde",
- "sha2",
- "signature",
- "subtle",
  "zeroize",
 ]
 
@@ -438,12 +389,6 @@ dependencies = [
  "rand_core",
  "subtle",
 ]
-
-[[package]]
-name = "fiat-crypto"
-version = "0.2.9"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "28dea519a9695b9977216879a3ebfddf92f1c08c05d984f8996aecd6ecdc811d"
 
 [[package]]
 name = "flagset"
@@ -1199,16 +1144,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8b870d8c151b6f2fb93e84a13146138f05d02ed11c7e7c54f8826aaaf7c9f184"
 
 [[package]]
-name = "pkcs8"
-version = "0.11.0-rc.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c53e5d0804fa4070b1b2a5b320102f2c1c094920a7533d5d87c2630609bcbd34"
-dependencies = [
- "der",
- "spki",
-]
-
-[[package]]
 name = "pkg-config"
 version = "0.3.32"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1217,7 +1152,7 @@ checksum = "7edddbd0b52d732b21ad9a5fab5c704c14cd949e5e9a1ec5929a24fded1b904c"
 [[package]]
 name = "pkiprocmacros"
 version = "0.1.2"
-source = "git+https://github.com/carl-wallace/rust-pki.git?branch=c7#101052e5257ba30c1c4032a62e4c1842cae3cfd1"
+source = "git+https://github.com/carl-wallace/rust-pki.git?branch=cert_limbo#88fdc02ec50b33af00b4ffa0e218eb23ead5cbe6"
 dependencies = [
  "quote",
  "syn",
@@ -1520,15 +1455,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "357703d41365b4b27c590e3ed91eabb1b663f07c4c084095e60cbed4362dff0d"
 
 [[package]]
-name = "rustc_version"
-version = "0.4.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cfcb3a22ef46e85b45de6ee7e79d063319ebb6594faafcf1c225ea92ab6e9b92"
-dependencies = [
- "semver",
-]
-
-[[package]]
 name = "rustix"
 version = "1.0.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1641,12 +1567,6 @@ dependencies = [
  "core-foundation-sys",
  "libc",
 ]
-
-[[package]]
-name = "semver"
-version = "1.0.26"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "56e6fa9c48d24d85fb3de5ad847117517440f6beceb7798af16b4a87d616b8d0"
 
 [[package]]
 name = "serde"
@@ -2558,3 +2478,13 @@ dependencies = [
  "quote",
  "syn",
 ]
+
+[[patch.unused]]
+name = "curve25519-dalek"
+version = "4.1.3"
+source = "git+https://github.com/baloo/curve25519-dalek.git?branch=baloo%2Frand-0.9#423dbb2cd39b0a25207d646f771e5494ee14aeef"
+
+[[patch.unused]]
+name = "ed25519-dalek"
+version = "2.2.0-pre"
+source = "git+https://github.com/baloo/curve25519-dalek.git?branch=baloo%2Frand-0.9#423dbb2cd39b0a25207d646f771e5494ee14aeef"
