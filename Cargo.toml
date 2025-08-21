@@ -41,7 +41,3 @@ sha2         = { git = "https://github.com/RustCrypto/hashes.git" }
 
 elliptic-curve = { git = "https://github.com/RustCrypto/traits.git" }
 ecdsa         = { git = "https://github.com/RustCrypto/signatures.git"}
-
-# Miscellaneous repos
-curve25519-dalek = { git = "https://github.com/baloo/curve25519-dalek.git", branch = "baloo/rand-0.9" }
-ed25519-dalek    = { git = "https://github.com/baloo/curve25519-dalek.git", branch = "baloo/rand-0.9" }
