@@ -135,7 +135,7 @@ fn om_sipr_only_get_roots() {
     not(feature = "om_sipr")
 ))]
 #[test]
-fn om_sipr_only_get_roots() {
+fn om_nipr_only_get_roots() {
     let roots = get_roots();
-    assert_eq!(roots.len(), 4);
+    assert_eq!(roots.len(), 3);
 }
