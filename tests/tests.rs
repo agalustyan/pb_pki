@@ -31,6 +31,9 @@ fn parse_embedded_roots() {
 
         let ta_bytes = include_bytes!("../roots/SIPR/om/NSS_JITC_Root_CA-4.der");
         reqwest::Certificate::from_der(ta_bytes).unwrap();
+
+        let ta_bytes = include_bytes!("../roots/SIPR/om/NSS_JITC_Root_CA-5.der");
+        reqwest::Certificate::from_der(ta_bytes).unwrap();
     }
     #[cfg(feature = "nipr")]
     {
@@ -53,6 +56,9 @@ fn parse_embedded_roots() {
 
         let ta_bytes = include_bytes!("../roots/SIPR/prod/NSS_Root_CA-4.der");
         reqwest::Certificate::from_der(ta_bytes).unwrap();
+
+        let ta_bytes = include_bytes!("../roots/SIPR/prod/NSS_Root_CA-4.der");
+        reqwest::Certificate::from_der(ta_bytes).unwrap();
     }
 }
 
@@ -66,7 +72,7 @@ fn parse_embedded_roots() {
 #[test]
 fn all_features_get_roots() {
     let roots = get_roots();
-    assert_eq!(roots.len(), 14);
+    assert_eq!(roots.len(), 16);
 }
 
 #[cfg(all(
@@ -92,7 +98,7 @@ fn dev_only_get_roots() {
 #[test]
 fn sipr_only_get_roots() {
     let roots = get_roots();
-    assert_eq!(roots.len(), 3);
+    assert_eq!(roots.len(), 4);
 }
 
 #[cfg(all(
@@ -118,7 +124,7 @@ fn nipr_only_get_roots() {
 #[test]
 fn om_sipr_only_get_roots() {
     let roots = get_roots();
-    assert_eq!(roots.len(), 3);
+    assert_eq!(roots.len(), 4);
 }
 
 #[cfg(all(
@@ -129,7 +135,7 @@ fn om_sipr_only_get_roots() {
     not(feature = "om_sipr")
 ))]
 #[test]
-fn om_sipr_only_get_roots() {
+fn om_nipr_only_get_roots() {
     let roots = get_roots();
     assert_eq!(roots.len(), 3);
 }
