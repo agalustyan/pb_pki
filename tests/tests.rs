@@ -72,7 +72,7 @@ fn parse_embedded_roots() {
 #[test]
 fn all_features_get_roots() {
     let roots = get_roots();
-    assert_eq!(roots.len(), 14);
+    assert_eq!(roots.len(), 16);
 }
 
 #[cfg(all(
@@ -98,7 +98,7 @@ fn dev_only_get_roots() {
 #[test]
 fn sipr_only_get_roots() {
     let roots = get_roots();
-    assert_eq!(roots.len(), 3);
+    assert_eq!(roots.len(), 4);
 }
 
 #[cfg(all(
@@ -124,7 +124,7 @@ fn nipr_only_get_roots() {
 #[test]
 fn om_sipr_only_get_roots() {
     let roots = get_roots();
-    assert_eq!(roots.len(), 3);
+    assert_eq!(roots.len(), 4);
 }
 
 #[cfg(all(
@@ -137,5 +137,5 @@ fn om_sipr_only_get_roots() {
 #[test]
 fn om_sipr_only_get_roots() {
     let roots = get_roots();
-    assert_eq!(roots.len(), 3);
+    assert_eq!(roots.len(), 4);
 }

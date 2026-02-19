@@ -392,6 +392,9 @@ pub fn get_roots() -> Vec<Vec<u8>> {
 
         let ta_bytes = include_bytes!("../roots/SIPR/om/NSS_JITC_Root_CA-4.der");
         retval.push(ta_bytes.to_vec());
+
+        let ta_bytes = include_bytes!("../roots/SIPR/om/NSS_JITC_Root_CA-5.der");
+        retval.push(ta_bytes.to_vec());
     }
     #[cfg(feature = "nipr")]
     {
@@ -410,6 +413,9 @@ pub fn get_roots() -> Vec<Vec<u8>> {
         retval.push(ta_bytes.to_vec());
 
         let ta_bytes = include_bytes!("../roots/SIPR/prod/NSS_Root_CA-2.der");
+        retval.push(ta_bytes.to_vec());
+
+        let ta_bytes = include_bytes!("../roots/SIPR/prod/NSS_Root_CA-4.der");
         retval.push(ta_bytes.to_vec());
 
         let ta_bytes = include_bytes!("../roots/SIPR/prod/NSS_Root_CA-4.der");
