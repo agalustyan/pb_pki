@@ -49,6 +49,7 @@ The CA certificates and TA certificates for each environment are listed below.
 
 #### Certification authority certificates
 * DOD_JITC_Derility_CA_3.der
+* DOD_JITC_Derility_CA-5.der
 * DOD_JITC_Email_CA-59.der
 * DOD_JITC_Email_CA-63.der
 * DOD_JITC_Email_CA-65.der
@@ -65,6 +66,7 @@ The CA certificates and TA certificates for each environment are listed below.
 * DOD_JITC_SW_CA-75.der
 * DOD_OM_Derility_CA-1.der
 * DOD_OM_Derility_CA_4.der
+* DOD_OM_Derility_CA_6.der
 * DOD_OM_Email_CA-62.der
 * DOD_OM_Email_CA-64.der
 * DOD_OM_Email_CA-70.der
@@ -118,6 +120,7 @@ The CA certificates and TA certificates for each environment are listed below.
 * NSS_JITC_Root_CA-1.der
 * NSS_JITC_Root_CA-2.der
 * NSS_JITC_Root_CA-4.der
+* NSS_JITC_Root_CA-5.der
 
 #### Certification authority certificates
 * NSS_DOD_JITC_Intermediate_CA-1.der
@@ -125,6 +128,7 @@ The CA certificates and TA certificates for each environment are listed below.
 * NSS_DOD_JITC_Intermediate_CA-3.der
 * NSS_DOD_JITC_Subordinate_CA-3.der
 * NSS_DOD_JITC_Subordinate_CA-5.der
+* NSS_DOD_JITC_TMS_CA-19.der
 * NSS_JITC_CA-4.der
 * NSS_JITC_Derility_CA-1.der
 * NSS_JITC_SW_CA-2.der
@@ -141,6 +145,7 @@ The CA certificates and TA certificates for each environment are listed below.
 * NSS_Root_CA-1.der
 * NSS_Root_CA-2.der
 * NSS_Root_CA-4.der
+* NSS_Root_CA-5.der
 
 #### Certification authority certificates
 * NSS_CA-4.der
@@ -149,6 +154,7 @@ The CA certificates and TA certificates for each environment are listed below.
 * NSS_DOD_Intermediate_CA-3.der
 * NSS_DOD_Subordinate_CA-3.der
 * NSS_DOD_Subordinate_CA-5.der
+* NSS_DOD_TMS_CA-19.der
 * NSS_Derility_CA-1.der
 * NSS_Derility_CA-2.der
 * NSS_SW_CA-10.der
