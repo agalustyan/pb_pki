@@ -108,6 +108,13 @@ pub fn prepare_certval_environment(
         };
         ta_store.push(cf);
 
+        let ta_bytes = include_bytes!("../roots/SIPR/om/NSS_JITC_Root_CA-5.der");
+        let cf = CertFile {
+            filename: "om sipr root 5".to_string(),
+            bytes: ta_bytes.to_vec(),
+        };
+        ta_store.push(cf);
+
         let cbor = include_bytes!("../cas/SIPR/om/om.cbor");
         let mut cert_source = CertSource::new_from_cbor(cbor)?;
         cert_source.initialize(&Default::default())?;
@@ -163,6 +170,13 @@ pub fn prepare_certval_environment(
         let ta_bytes = include_bytes!("../roots/SIPR/prod/NSS_Root_CA-4.der");
         let cf = CertFile {
             filename: "sipr root 4".to_string(),
+            bytes: ta_bytes.to_vec(),
+        };
+        ta_store.push(cf);
+
+        let ta_bytes = include_bytes!("../roots/SIPR/prod/NSS_Root_CA-5.der");
+        let cf = CertFile {
+            filename: "sipr root 5".to_string(),
             bytes: ta_bytes.to_vec(),
         };
         ta_store.push(cf);
