@@ -57,7 +57,7 @@ fn parse_embedded_roots() {
         let ta_bytes = include_bytes!("../roots/SIPR/prod/NSS_Root_CA-4.der");
         reqwest::Certificate::from_der(ta_bytes).unwrap();
 
-        let ta_bytes = include_bytes!("../roots/SIPR/prod/NSS_Root_CA-4.der");
+        let ta_bytes = include_bytes!("../roots/SIPR/prod/NSS_Root_CA-5.der");
         reqwest::Certificate::from_der(ta_bytes).unwrap();
     }
 }

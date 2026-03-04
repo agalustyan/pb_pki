@@ -307,6 +307,12 @@ fn get_reqwest_client(
             Ok(ta_cert) => builder = builder.add_root_certificate(ta_cert),
             Err(e) => error!("Failed to parse SIPR/om/NSS_JITC_Root_CA-4: {e:?}"),
         };
+
+        let ta_bytes = include_bytes!("../roots/SIPR/om/NSS_JITC_Root_CA-5.der");
+        match reqwest::Certificate::from_der(ta_bytes) {
+            Ok(ta_cert) => builder = builder.add_root_certificate(ta_cert),
+            Err(e) => error!("Failed to parse SIPR/om/NSS_JITC_Root_CA-5: {e:?}"),
+        };
     }
     #[cfg(feature = "nipr")]
     {
@@ -346,6 +352,12 @@ fn get_reqwest_client(
         match reqwest::Certificate::from_der(ta_bytes) {
             Ok(ta_cert) => builder = builder.add_root_certificate(ta_cert),
             Err(e) => error!("Failed to parse SIPR/prod/NSS_Root_CA-4: {e:?}"),
+        };
+
+        let ta_bytes = include_bytes!("../roots/SIPR/prod/NSS_Root_CA-5.der");
+        match reqwest::Certificate::from_der(ta_bytes) {
+            Ok(ta_cert) => builder = builder.add_root_certificate(ta_cert),
+            Err(e) => error!("Failed to parse SIPR/prod/NSS_Root_CA-5: {e:?}"),
         };
     }
 
@@ -418,7 +430,7 @@ pub fn get_roots() -> Vec<Vec<u8>> {
         let ta_bytes = include_bytes!("../roots/SIPR/prod/NSS_Root_CA-4.der");
         retval.push(ta_bytes.to_vec());
 
-        let ta_bytes = include_bytes!("../roots/SIPR/prod/NSS_Root_CA-4.der");
+        let ta_bytes = include_bytes!("../roots/SIPR/prod/NSS_Root_CA-5.der");
         retval.push(ta_bytes.to_vec());
     }
     retval
@@ -432,5 +444,5 @@ pub fn get_roots() -> Vec<Vec<u8>> {
     feature = "nipr"
 )))]
 compile_error! {
-    "At least one of feature \"dev\", \"om\", \"om_nipr\", \"om_sipr\", or \"sipr\" must be enabled for this crate."
+    "At least one of feature \"dev\", \"om_nipr\", \"om_nipr\", \"om_sipr\", or \"sipr\" must be enabled for this crate."
 }
