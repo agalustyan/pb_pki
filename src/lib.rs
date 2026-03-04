@@ -444,5 +444,5 @@ pub fn get_roots() -> Vec<Vec<u8>> {
     feature = "nipr"
 )))]
 compile_error! {
-    "At least one of feature \"dev\", \"om_nipr\", \"om_nipr\", \"om_sipr\", or \"sipr\" must be enabled for this crate."
+    "At least one of feature \"dev\", \"nipr\", \"om_nipr\", \"om_sipr\", or \"sipr\" must be enabled for this crate."
 }
